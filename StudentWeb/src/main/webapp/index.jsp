@@ -34,6 +34,11 @@
                 background-attachment: fixed;
                 background-size: 100% 100%;
             }
+            #content{
+                background-color: lightblue;
+                width: 400px;
+                margin: 20px auto;
+            }
         </style>
     </head>
         <h1><%= (new java.util.Date()).toLocaleString()%></h1>
@@ -68,7 +73,12 @@
             </table>
             <input type="submit" name="send" value="Відправити">
         </form>
-        
+    <c:if test="${students.size() > 2}">
+    <form action="calculateStats">
+        <input type="submit" name="send2" value="Statistics">
+    </form>
+    </c:if>
+    <div id="content">
         <c:if test="${students.size() > 0}">
             <table class="list">
                 <tr>
@@ -91,4 +101,5 @@
                 </c:forEach>
             </table>
         </c:if>
+    </div>
 </html>
