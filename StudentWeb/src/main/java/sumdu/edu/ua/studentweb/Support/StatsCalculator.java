@@ -21,7 +21,10 @@ public class StatsCalculator {
     private static int minAge;
     private static String popularMail;
     private static int sumduMails;
-    
+
+    private StatsCalculator() {//to perform Singleton
+    }
+        
     public static StatsCalculator getInstance() {//to perform Singleton
         if(instance==null){instance=new StatsCalculator();}
         return instance;

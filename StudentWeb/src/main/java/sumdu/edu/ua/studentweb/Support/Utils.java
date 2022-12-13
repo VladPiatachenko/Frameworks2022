@@ -4,6 +4,7 @@
  */
 package sumdu.edu.ua.studentweb.Support;
 
+import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -19,10 +20,9 @@ public class Utils {
           Map<String,Integer> mails=new HashMap<String,Integer>(); 
           String tempDomain="";
           String popularDomain="";
-          String pat="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
           int count=0;
           for(Student st:studs){
-              if(Utils.patternMatches(st.getEmail(), pat)){
+              if(Utils.patternMatches(st.getEmail())){
               tempDomain=Utils.getEmailDomain(st.getEmail());
               if(mails.containsKey(tempDomain)){count=mails.get(tempDomain)+1;}
               else{count=1;}
@@ -53,7 +53,9 @@ public class Utils {
         if(count==0){return -1;}
         return tempAge/count;
     }   
-     public static boolean patternMatches(String emailAddress, String regexPattern) {
+     public static boolean patternMatches(String emailAddress) {
+        //регулярний вираз для перевірки введеного email
+        String regexPattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
         return Pattern.compile(regexPattern)
           .matcher(emailAddress)
           .matches();

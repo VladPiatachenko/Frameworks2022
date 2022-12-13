@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import sumdu.edu.ua.studentweb.Support.EmailException;
+import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
 import sumdu.edu.ua.studentweb.Support.StatsCalculator;
 import sumdu.edu.ua.studentweb.Support.Student;
 import sumdu.edu.ua.studentweb.Support.Utils;
@@ -45,9 +45,10 @@ public class calculateStats extends HttpServlet {
         try {
             stat.setPopularMail( Utils.calculatePopularDomain((LinkedList<Student>) students));
         } catch (EmailException ex) {
+      //Або реалізуйте відлов виняткових ситуацій інакше, блок автогенерується до вставки коли існує обробка виключення
             Logger.getLogger(calculateStats.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        //Додайте свій код решти обробок даних
         
         session.setAttribute("stat", stat);
         response.sendRedirect("statistics.jsp");

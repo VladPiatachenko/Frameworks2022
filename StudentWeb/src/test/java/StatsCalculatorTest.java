@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import sumdu.edu.ua.studentweb.Support.EmailException;
+import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
 import sumdu.edu.ua.studentweb.Support.Student;
 import sumdu.edu.ua.studentweb.Support.Utils;
 
@@ -38,10 +38,9 @@ public class StatsCalculatorTest {
     studs.remove(3);
     }
     @Test
-    public void testUsingSimpleRegex() {
+    public void patternMatchesTest() {
     String emailAddress = "username@domain.com";
-    String regexPattern = "^(.+)@(\\S+)$";
-    assertTrue(Utils.patternMatches(emailAddress, regexPattern));
+    assertTrue(Utils.patternMatches(emailAddress));
     }
     @Test
     public void calculatePopularDomainTest() throws EmailException{
