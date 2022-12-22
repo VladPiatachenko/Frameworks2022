@@ -36,7 +36,6 @@
             }
             #content{
                 background-color: lightblue;
-                width: 400px;
                 margin: 20px auto;
             }
         </style>
@@ -82,8 +81,10 @@
         <c:if test="${students.size() > 0}">
             <table class="list">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Surname</th>
+                    <th>Scores</th>
                     <th>Age</th>
                     <th>Email</th>
                     <th>Group</th>
@@ -91,8 +92,10 @@
                 </tr>
                 <c:forEach var="student" items="${students}">
                     <tr>
+                        <td><c:out value="${student.getDoc().getId()}"/></td>
                         <td><c:out value="${student.getName()}"/></td>
                         <td><c:out value="${student.getSurname()}"/></td>
+                        <td><c:out value="${student.getDoc().toString()}"/></td>
                         <td><c:out value="${student.getAge()}"/></td>
                         <td><c:out value="${student.getEmail()}"/></td>
                         <td><c:out value="${student.getGroup()}"/></td>

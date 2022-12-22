@@ -4,8 +4,6 @@
  */
 package sumdu.edu.ua.studentweb.CustomExceptions;
 
-import java.util.regex.Pattern;
-
 /**
  *
  * @author Erlkonig

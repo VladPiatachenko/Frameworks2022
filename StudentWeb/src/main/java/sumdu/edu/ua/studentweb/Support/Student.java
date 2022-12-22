@@ -4,18 +4,24 @@
  */
 package sumdu.edu.ua.studentweb.Support;
 
+import java.math.BigInteger;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  *
  * @author Erlkonig
  */
 public class Student {
-    private String name;
-    private String surname;
-    private String age;
-    private String email;
-    private String group;
-    private String faculty;
-    
+    private Document doc;
+
+    public Document getDoc() {
+        return doc;
+    }
+
+    public void setDoc(Document id) {
+        this.doc = id;
+    }
+
     public Student(String name, String surname, String age, String email, String group, String faculty) {
         this.name = name;
         this.surname = surname;
@@ -23,6 +29,15 @@ public class Student {
         this.email = email;
         this.group = group;
         this.faculty = faculty;
+    }
+    private String name;
+    private String surname;
+    private String age;
+    private String email;
+    private String group;
+    private String faculty;
+    
+    public Student() {
     }
     
     public String getName() {

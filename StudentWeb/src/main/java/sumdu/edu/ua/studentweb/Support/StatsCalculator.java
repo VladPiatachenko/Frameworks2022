@@ -4,11 +4,6 @@
  */
 package sumdu.edu.ua.studentweb.Support;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.regex.Pattern;
-
 /**
  *
  * @author Erlkonig
