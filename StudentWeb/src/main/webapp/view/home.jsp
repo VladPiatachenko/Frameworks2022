@@ -73,7 +73,7 @@
             <input type="submit" name="send" value="Відправити">
         </form>
     <c:if test="${students.size() > 2}">
-    <form action="calculateStats">
+    <form action="calculateStats" method="post">
         <input type="submit" name="send2" value="Statistics">
     </form>
     </c:if>
@@ -98,8 +98,16 @@
                         <td><c:out value="${student.getDoc().toString()}"/></td>
                         <td><c:out value="${student.getAge()}"/></td>
                         <td><c:out value="${student.getEmail()}"/></td>
-                        <td><c:out value="${student.getGroup()}"/></td>
-                        <td><c:out value="${student.getFaculty()}"/></td>
+                        <td>
+                            <form action="filterGroup" method="get">
+                            <input type="submit" name="filter" value="${student.getGroup()}">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="filterFaculty" method="get">
+                            <input type="submit" name="filter" value="${student.getFaculty()}">
+                            </form>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
