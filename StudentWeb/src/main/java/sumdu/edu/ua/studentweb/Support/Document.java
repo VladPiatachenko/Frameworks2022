@@ -31,15 +31,15 @@ public class Document {
         
     	Subject subj1 = (Subject)factory.getBean("Subject");
         subj1.setName(sub1);
-        subj1.setScore((int)(Math.random()*(100-60)));
+        subj1.setScore((int)(Math.random()*100));
         scores.add(subj1);
         Subject subj2 = (Subject)factory.getBean("Subject");
         subj2.setName(sub2);
-        subj2.setScore((int)(Math.random()*(100-60)));
+        subj2.setScore((int)(Math.random()*100));
         scores.add(subj2);
         Subject subj3 = (Subject)factory.getBean("Subject");
         subj3.setName(sub3);
-        subj3.setScore((int)(Math.random()*(100-60)));
+        subj3.setScore((int)(Math.random()*100));
         scores.add(subj3);
     }
 
