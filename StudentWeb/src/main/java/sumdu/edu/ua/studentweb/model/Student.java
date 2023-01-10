@@ -2,25 +2,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package sumdu.edu.ua.studentweb.Support;
+package sumdu.edu.ua.studentweb.model;
 
-import java.math.BigInteger;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
+import java.io.Serializable;
+import javax.persistence.*;
+import sumdu.edu.ua.studentweb.Support.Document;
 /**
  *
  * @author Erlkonig
  */
-public class Student {
+@Entity
+@Table(name="student")
+public class Student implements Serializable {
+   @Transient
     private Document doc;
-
+    
     public Document getDoc() {
         return doc;
     }
 
-    public void setDoc(Document id) {
-        this.doc = id;
+    public void setDoc(Document doc) {
+        this.doc = doc;
     }
+    @Id 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+	private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+     
 
     public Student(String name, String surname, String age, String email, String group, String faculty) {
         this.name = name;
@@ -30,11 +46,17 @@ public class Student {
         this.group = group;
         this.faculty = faculty;
     }
+    @Column(name = "Name")
     private String name;
+    @Column(name = "Surname")
     private String surname;
+    @Column(name = "age")
     private String age;
+    @Column(name = "email")
     private String email;
+    @Column(name = "group_")
     private String group;
+    @Column(name = "faculty")
     private String faculty;
     
     public Student() {

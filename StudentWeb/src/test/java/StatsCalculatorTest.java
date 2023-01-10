@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
-import sumdu.edu.ua.studentweb.Support.Student;
+import sumdu.edu.ua.studentweb.model.Student;
 import sumdu.edu.ua.studentweb.Support.Utils;
 
 

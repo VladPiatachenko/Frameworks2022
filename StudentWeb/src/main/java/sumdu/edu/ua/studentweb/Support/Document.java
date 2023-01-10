@@ -4,12 +4,8 @@
  */
 package sumdu.edu.ua.studentweb.Support;
 
-import java.math.BigInteger;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.FileSystemResource;

@@ -4,11 +4,11 @@
  */
 package sumdu.edu.ua.studentweb.controller;
 
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
+import sumdu.edu.ua.studentweb.DAO.StudentDAO;
 import sumdu.edu.ua.studentweb.Support.StatsCalculator;
-import sumdu.edu.ua.studentweb.Support.Student;
+import sumdu.edu.ua.studentweb.model.Student;
 import sumdu.edu.ua.studentweb.Support.Utils;
 
 /**
@@ -33,25 +34,27 @@ import sumdu.edu.ua.studentweb.Support.Utils;
 public class StudentController {
     List<Student> students;
     ApplicationContext factory;
-    Student student;
-        
+    @Autowired
+    private StudentDAO dao;
+	    
     
     @ModelAttribute
         public void modelData(Model m){
             if(students==null){ students = new LinkedList<Student>();}
             factory = new ClassPathXmlApplicationContext("/SpringXMLConfig.xml");
-            student = (Student)factory.getBean("Student");
         }
     
         
         @RequestMapping(value = "/")
-	public String home() {
+	public String home(Model m) {
+            students=dao.getStudents();
+                m.addAttribute("students", students);
 		return "home";
 	}
         
         @RequestMapping("StudentAdd")
         public String addStudent(HttpServletRequest request,Model m){
-        HttpSession session=request.getSession();
+      
         if (request.getParameter("name") != "" && request.getParameter("surname") != "") {
         Student student = (Student)factory.getBean("Student");
         
@@ -61,8 +64,9 @@ public class StudentController {
         student.setEmail(request.getParameter("email"));
         student.setGroup(request.getParameter("group"));
         student.setFaculty(request.getParameter("faculty"));
-        students.add(student);
-    }
+        dao.addStudent(student);}
+        students=dao.getStudents();
+    
         m.addAttribute("students", students);
         
     return "home";

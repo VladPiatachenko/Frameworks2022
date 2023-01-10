@@ -4,6 +4,7 @@
  */
 package sumdu.edu.ua.studentweb.Support;
 
+import sumdu.edu.ua.studentweb.model.Student;
 import sumdu.edu.ua.studentweb.CustomExceptions.EmailException;
 import java.util.HashMap;
 import java.util.LinkedList;

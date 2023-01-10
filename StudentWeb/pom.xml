@@ -12,18 +12,53 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-           <maven.compiler.source>${java.version}</maven.compiler.source>
-            <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        
+        <spring.version>4.2.3.RELEASE</spring.version>
+        <hibernate.version>4.1.9.Final</hibernate.version>
     </properties>
-    
+ 
 <dependencies>
-    <dependency>
-        <groupId>com.mchange</groupId>
-        <artifactId>c3p0</artifactId>
-        <version>0.9.5.3</version>
-    </dependency>
-
         <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+
+                <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- JPA Vendor -->
+		
+		<!-- IN MEMORY Database and JDBC Driver -->
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.7</version>
+		</dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+      <version>4.3.11.Final</version>
+      <type>jar</type>
+    </dependency>
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>5.1.49</version>
+</dependency>
+
+    
+    <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -52,7 +87,7 @@
 			<artifactId>spring-web</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
-
+                
     </dependencies>
 
     <build>
